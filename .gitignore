@@ -1,4 +1,6 @@
 .settings/
+.proparse/
+.scannerwork/
 Backup/
 BetaDigger/
 Cache/
@@ -12,8 +14,8 @@ Kalender/
 Presentatie/
 Screenshots/
 Start/
+target/
 *.bak
-*.bat
 *.lnk
 *.chm
 *.wrx
@@ -28,3 +30,5 @@ image/Thumbs.db
 protrace*
 .project
 .propath
+empty_schema.df
+
