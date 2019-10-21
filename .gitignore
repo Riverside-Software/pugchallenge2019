@@ -31,4 +31,10 @@ protrace*
 .project
 .propath
 empty_schema.df
+results.xml
+sonar.xml
+lbi*
+rcd*
+srt*
+profiler
 

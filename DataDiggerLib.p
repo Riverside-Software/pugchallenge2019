@@ -778,8 +778,8 @@ SUBSCRIBE TO "setUsage" ANYWHERE.
  * Since the library might be started from DataDigger.p
  * we cannot rely on the registry being loaded yet
  */
-glCacheTableDefs = TRUE.
-glCacheFieldDefs = TRUE.
+glCacheTableDefs = false.
+glCacheFieldDefs = false.
 
 /* _UIB-CODE-BLOCK-END */
 &ANALYZE-RESUME
