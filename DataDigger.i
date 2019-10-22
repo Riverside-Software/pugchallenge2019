@@ -119,6 +119,8 @@ DEFINE TEMP-TABLE ttField NO-UNDO RCODE-INFORMATION
   FIELD cOldValue     AS CHARACTER                   LABEL "Old value" FORMAT "x(256)"
   FIELD hColumn       AS HANDLE
 
+  FIELD cComment      AS CHARACTER
+
   INDEX idxPrim IS PRIMARY cTableCacheId
   INDEX idxName cFieldName
   INDEX idxOrder iOrder /* for fields browse */
