@@ -27,4 +27,11 @@
     </PCTCompile>
   </target>
 
+<target name="dist">
+    <zip destfile="target/DataDigger.zip">
+      <fileset dir="target/build" includes="*.r" />
+      <fileset dir="." includes="*.wrx" />
+      <fileset dir="." includes="*.bat,*.ini,*.txt,image/*" />    
+      </zip>
+</target>
 </project>
