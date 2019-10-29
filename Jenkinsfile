@@ -1,5 +1,5 @@
-pipeline{
-  agent { label 'Node01' }  <=== Use the node matching your team number !!
+pipeline {
+  agent { label 'Node16' }
   options {
     buildDiscarder(logRotator(numToKeepStr:'10'))
     timeout(time: 10, unit: 'MINUTES')
