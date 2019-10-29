@@ -3,7 +3,9 @@
 <!-- How to execute : %DLC%\ant\bin\ant -lib %DLC%\pct\PCT.jar -DDLC=%DLC% clean build -->
 <project name="DataDigger" >
   <taskdef resource="PCT.properties" />
+
   <taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask" />
+
 
   <target name="clean">
     <delete dir="target" />
@@ -27,7 +29,7 @@
       </propath>
     </PCTCompile>
   </target>
-
+  
   <target name="test">
     <mkdir dir="profiler" />
     <ABLUnit dlcHome="${DLC}">
