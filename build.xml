@@ -4,6 +4,9 @@
 <project name="DataDigger" >
   <taskdef resource="PCT.properties" />
 
+  <taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask" />
+
+
   <target name="clean">
     <delete dir="target" />
   </target>
@@ -26,15 +29,35 @@
       </propath>
     </PCTCompile>
   </target>
+  
+  <target name="test">
+    <mkdir dir="profiler" />
+    <ABLUnit dlcHome="${DLC}">
+      <fileset dir="." includes="test/*.p" />
+      <DbConnection dbDir="target/db" dbName="sports2000" readOnly="true" />
+      <Profiler enabled="true" coverage="true" outputDir="profiler" />
+      <propath> 
+        <pathelement path="." />    
+      </propath> 
+    </ABLUnit>
+    <xmltask source="results.xml" dest="sonar.xml">
+      <rename path="//testsuites" to="testExecutions" />
+      <attr path="//testExecutions" attr="version" value="1" />
+      <rename path="//testsuite" to="file" />
+      <rename path="//file/@name" to="path" />
+      <rename path="//testcase" to="testCase" />
+      <remove path="//testCase/@time" />
+      <attr path="//testCase" attr="duration" value="0" />
+    </xmltask>
+  </target>
 
-  <target name ="dist">
-	<zip destfile="target/DataDigger.zip">
-     <fileset dir="target/build" includes="*.r"/>
-     <fileset dir="." includes="**/*.wrx"/>
-     <fileset dir="." includes="**/*.ini"/>
-     <fileset dir="." includes="**/*.txt"/>
-     <fileset dir="." includes="image/*.*"/>
-	</zip>
+  <target name="dist">
+    <zip destFile="target/DataDigger.zip">
+      <fileset dir="target/build" includes="*.r" />
+      <fileset dir="." includes="*.wrx" />
+      <fileset dir="." includes="*.bat,*.ini,*.txt,image/*" />
+    </zip>
+    <touch file="empty_schema.df" />
   </target>
 
 </project>
